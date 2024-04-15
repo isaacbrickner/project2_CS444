@@ -28,7 +28,7 @@ int reserve_seat(int n)
 int free_seat(int n)
 {
     pthread_mutex_lock(&mutex);
-    if (!seat_taken[n]) {
+    if (is_free(n)) {
         pthread_mutex_unlock(&mutex);
         return -1; 
     }
